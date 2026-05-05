@@ -13,47 +13,38 @@
   --border:#2a2a35;--border-strong:#3a3a48;
   --text:#e8e8f0;--text-dim:#8a8a99;--text-faint:#5a5a68;
   --accent:#7c5cff;--accent2:#22d3ee;--accent3:#f97316;
-  --success:#10b981;
 }
 html,body{background:var(--bg);color:var(--text);font-family:Inter,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:var(--accent2);text-decoration:none}
 a:hover{text-decoration:underline}
 
-.hero{
-  position:relative;padding:80px 24px 60px;text-align:center;
+.hero{position:relative;padding:80px 24px 60px;text-align:center;
   background:radial-gradient(ellipse at top,rgba(124,92,255,0.18),transparent 60%),
              radial-gradient(ellipse at bottom right,rgba(34,211,238,0.10),transparent 50%);
-  border-bottom:1px solid var(--border);
-}
+  border-bottom:1px solid var(--border)}
 .hero-eyebrow{display:inline-block;padding:6px 14px;border:1px solid var(--border-strong);border-radius:999px;font-size:12px;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px}
-.hero h1{font-size:clamp(32px,5vw,56px);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:18px;background:linear-gradient(135deg,#fff 0%,#a8a8c0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero h1{font-size:clamp(32px,5vw,56px);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:18px;background:linear-gradient(135deg,#fff 0%,#a8a8c0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero p.lede{font-size:18px;color:var(--text-dim);max-width:700px;margin:0 auto;line-height:1.7}
 .hero .meta{margin-top:28px;display:flex;flex-wrap:wrap;gap:24px;justify-content:center;font-size:13px;color:var(--text-faint)}
-.hero .meta span{display:inline-flex;align-items:center;gap:6px}
 
 .container{max-width:1280px;margin:0 auto;padding:0 24px}
-
 section{padding:56px 0}
 .section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;gap:16px;flex-wrap:wrap}
 .section-head h2{font-size:24px;font-weight:700;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px}
 .section-head .badge{font-size:11px;color:var(--text-dim);background:var(--bg-elev);padding:4px 10px;border-radius:6px;border:1px solid var(--border);text-transform:uppercase;letter-spacing:0.06em}
 
-.card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s,transform .2s}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s}
 .card:hover{border-color:var(--border-strong)}
 .card-body{padding:24px}
 .card h3{font-size:18px;font-weight:600;margin-bottom:8px}
 .card .desc{color:var(--text-dim);font-size:14px;margin-bottom:16px}
-.card .meta{display:flex;gap:14px;font-size:12px;color:var(--text-faint);flex-wrap:wrap}
+.card .meta{display:flex;gap:14px;font-size:12px;color:var(--text-faint);flex-wrap:wrap;align-items:center}
 .card .meta span{display:inline-flex;align-items:center;gap:5px}
 
 .row{display:grid;gap:20px}
-.row.audio-video{grid-template-columns:1fr 1fr}
-.row.split{grid-template-columns:1fr 1fr}
+.row.split,.row.two{grid-template-columns:1fr 1fr}
 .row.three{grid-template-columns:repeat(3,1fr)}
-.row.two{grid-template-columns:1fr 1fr}
-@media (max-width:900px){
-  .row.audio-video,.row.split,.row.three,.row.two{grid-template-columns:1fr}
-}
+@media (max-width:900px){.row.split,.row.two,.row.three{grid-template-columns:1fr}}
 
 audio,video{width:100%;display:block;border-radius:8px;background:#000}
 audio{margin-top:8px}
@@ -76,31 +67,37 @@ video{margin-top:8px;max-height:400px}
 .report-content ul,.report-content ol{padding-left:22px}
 .report-content strong{color:#fff}
 .report-content code{background:var(--bg-elev);padding:2px 6px;border-radius:4px;font-size:12px;color:var(--accent3)}
-.report-content blockquote{border-left:3px solid var(--accent);padding-left:14px;color:var(--text-dim);margin:10px 0}
 
-.info-thumb{position:relative;display:block;border-radius:12px;overflow:hidden;background:#fff;cursor:pointer;aspect-ratio:4/3;border:1px solid var(--border)}
-.info-thumb iframe{width:100%;height:100%;border:0;pointer-events:none;transform:scale(0.5);transform-origin:0 0;width:200%;height:200%}
-.info-thumb .overlay{position:absolute;inset:0;display:flex;align-items:flex-end;padding:14px;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0) 50%);color:#fff;font-weight:600;font-size:14px;pointer-events:none}
-.info-thumb:hover .overlay{background:linear-gradient(to top,rgba(124,92,255,0.85) 0%,rgba(0,0,0,0) 50%)}
+/* Infographic - PNG image cards */
+.info-card{padding:0;cursor:pointer;display:flex;flex-direction:column}
+.info-card .img-wrap{aspect-ratio:1536/2752;overflow:hidden;background:#fff;display:flex;align-items:flex-start;justify-content:center}
+.info-card img{width:100%;display:block;transition:transform .3s}
+.info-card:hover img{transform:scale(1.02)}
+.info-card .info{padding:14px 18px;border-top:1px solid var(--border)}
+.info-card h3{font-size:14px;margin-bottom:4px}
+.info-card .meta{font-size:11px;color:var(--text-faint)}
 
-.deck-card{display:flex;align-items:center;gap:20px;padding:22px 24px}
-.deck-card .icon{flex-shrink:0;width:56px;height:56px;background:linear-gradient(135deg,var(--accent3),#fbbf24);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px}
-.deck-card .info{flex:1;min-width:0}
-.deck-card h3{margin-bottom:4px}
-.deck-card .info p{font-size:13px;color:var(--text-dim)}
-.btn{display:inline-block;padding:8px 16px;background:var(--bg-elev);border:1px solid var(--border-strong);border-radius:8px;color:#fff;font-size:13px;font-weight:500;transition:all .2s;white-space:nowrap}
+/* Slides - PDF embed */
+.deck-card{padding:0;display:flex;flex-direction:column}
+.deck-card .pdf-wrap{aspect-ratio:16/9;background:#1a1a24;border-bottom:1px solid var(--border)}
+.deck-card iframe{width:100%;height:100%;border:0}
+.deck-card .info{padding:18px 22px;display:flex;align-items:center;gap:14px}
+.deck-card .icon{flex-shrink:0;width:44px;height:44px;background:linear-gradient(135deg,var(--accent3),#fbbf24);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.deck-card .info-text{flex:1;min-width:0}
+.deck-card h3{font-size:15px;margin-bottom:2px}
+.deck-card .info-text p{font-size:12px;color:var(--text-dim)}
+.btn{display:inline-block;padding:7px 14px;background:var(--bg-elev);border:1px solid var(--border-strong);border-radius:8px;color:#fff;font-size:12px;font-weight:500;transition:all .2s;white-space:nowrap}
 .btn:hover{background:var(--accent);border-color:var(--accent);text-decoration:none}
-.btn-ghost{background:transparent}
 
 footer{padding:48px 24px;text-align:center;color:var(--text-faint);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
 footer a{color:var(--text-dim)}
 
-/* Modal for infographic full-view */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
-.modal.open{display:flex}
-.modal iframe{width:100%;height:100%;max-width:1400px;border:0;border-radius:12px;background:#fff}
-.modal-close{position:absolute;top:20px;right:20px;background:var(--bg-elev);border:1px solid var(--border-strong);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center}
-.modal-close:hover{background:var(--accent)}
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:100;display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out;overflow:auto}
+.lightbox.open{display:flex}
+.lightbox img{max-width:100%;max-height:none;width:auto;height:auto;border-radius:8px;box-shadow:0 20px 80px rgba(0,0,0,0.5)}
+.lightbox-close{position:fixed;top:20px;right:20px;background:var(--bg-elev);border:1px solid var(--border-strong);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:101}
+.lightbox-close:hover{background:var(--accent)}
 </style>
 </head>
 <body>
@@ -108,7 +105,7 @@ footer a{color:var(--text-dim)}
 <header class="hero">
   <div class="hero-eyebrow">NotebookLM Studio · 2026 Spring Edition</div>
   <h1>AI 行业动态<br>2026 春季综合简报</h1>
-  <p class="lede">基于 aidigest.club 10 期日报（2026-04-26 → 2026-05-05）由 Google NotebookLM 多模态生成的播客、视频、思维导图、深度报告、信息图与战略幻灯片。</p>
+  <p class="lede">基于 aidigest.club 10 期日报（2026-04-26 → 2026-05-05），由 Google NotebookLM 多模态生成的播客、视频、思维导图、深度报告、信息图与战略幻灯片。</p>
   <div class="meta">
     <span>📅 2026-04-26 → 2026-05-05</span>
     <span>📚 10 期日报</span>
@@ -120,21 +117,21 @@ footer a{color:var(--text-dim)}
 
   <section>
     <div class="section-head"><h2>🎧 播客 + 🎬 视频</h2><span class="badge">Audio · Video</span></div>
-    <div class="row audio-video">
+    <div class="row two">
       <div class="card">
         <div class="card-body">
           <h3>AI实习生九秒删库真相</h3>
           <p class="desc">NotebookLM 长格式播客 · 双主持人对谈</p>
-          <audio controls preload="metadata" src="assets/audio.mp3"></audio>
-          <div class="meta" style="margin-top:12px"><span>🎧 MP3</span><span>26.5 MB</span></div>
+          <audio controls preload="metadata" src="assets/audio.m4a" type="audio/mp4"></audio>
+          <div class="meta" style="margin-top:12px"><span>🎧 M4A</span><span>26.5 MB</span><a href="assets/audio.m4a" download style="margin-left:auto">下载</a></div>
         </div>
       </div>
       <div class="card">
         <div class="card-body">
           <h3>深度解析：2026春季主权AI时代</h3>
-          <p class="desc">NotebookLM 自动生成的电影感解说视频</p>
+          <p class="desc">NotebookLM 自动生成的电影感解说视频 · 8:36</p>
           <video controls preload="metadata" src="assets/video.mp4"></video>
-          <div class="meta" style="margin-top:12px"><span>🎬 MP4</span><span>40.2 MB</span></div>
+          <div class="meta" style="margin-top:12px"><span>🎬 MP4 720p</span><span>40.2 MB</span><a href="assets/video.mp4" download style="margin-left:auto">下载</a></div>
         </div>
       </div>
     </div>
@@ -161,14 +158,39 @@ footer a{color:var(--text-dim)}
   <section>
     <div class="section-head"><h2>🖼️ 信息图</h2><span class="badge">3 Infographics</span></div>
     <div class="row three">
-      <div class="card"><div class="card-body" style="padding:18px"><a href="assets/infographic-b77c8f7e.html" target="_blank" class="info-thumb"><iframe src="assets/infographic-b77c8f7e.html" sandbox></iframe><div class="overlay">AI 2026 产业趋势质变</div></a><div class="meta" style="margin-top:14px"><span>🖼️ HTML</span><span>4.7 MB</span><a href="assets/infographic-b77c8f7e.html" target="_blank" style="margin-left:auto">打开 →</a></div></div></div><div class="card"><div class="card-body" style="padding:18px"><a href="assets/infographic-f98c9852.html" target="_blank" class="info-thumb"><iframe src="assets/infographic-f98c9852.html" sandbox></iframe><div class="overlay">2026 AI 行业趋势预测</div></a><div class="meta" style="margin-top:14px"><span>🖼️ HTML</span><span>4.2 MB</span><a href="assets/infographic-f98c9852.html" target="_blank" style="margin-left:auto">打开 →</a></div></div></div><div class="card"><div class="card-body" style="padding:18px"><a href="assets/infographic-4e8fd8d1.html" target="_blank" class="info-thumb"><iframe src="assets/infographic-4e8fd8d1.html" sandbox></iframe><div class="overlay">2026人工智能产业趋势分析</div></a><div class="meta" style="margin-top:14px"><span>🖼️ HTML</span><span>4.7 MB</span><a href="assets/infographic-4e8fd8d1.html" target="_blank" style="margin-left:auto">打开 →</a></div></div></div>
+      <div class="card info-card" onclick="openLightbox('assets/infographic-b77c8f7e.png')">
+        <div class="img-wrap"><img src="assets/infographic-b77c8f7e.png" alt="AI 2026 产业趋势质变" loading="lazy"></div>
+        <div class="info"><h3>AI 2026 产业趋势质变</h3><div class="meta">PNG · 1536×2752 · 4.7 MB · 点击查看大图</div></div>
+      </div><div class="card info-card" onclick="openLightbox('assets/infographic-f98c9852.png')">
+        <div class="img-wrap"><img src="assets/infographic-f98c9852.png" alt="2026 AI 行业趋势预测" loading="lazy"></div>
+        <div class="info"><h3>2026 AI 行业趋势预测</h3><div class="meta">PNG · 1536×2752 · 4.2 MB · 点击查看大图</div></div>
+      </div><div class="card info-card" onclick="openLightbox('assets/infographic-4e8fd8d1.png')">
+        <div class="img-wrap"><img src="assets/infographic-4e8fd8d1.png" alt="2026人工智能产业趋势分析" loading="lazy"></div>
+        <div class="info"><h3>2026人工智能产业趋势分析</h3><div class="meta">PNG · 1536×2752 · 4.7 MB · 点击查看大图</div></div>
+      </div>
     </div>
   </section>
 
   <section>
-    <div class="section-head"><h2>📊 战略幻灯片</h2><span class="badge">2 Slide Decks</span></div>
+    <div class="section-head"><h2>📊 战略幻灯片</h2><span class="badge">2 Slide Decks (PDF)</span></div>
     <div class="row two">
-      <div class="card deck-card"><div class="icon">📊</div><div class="info"><h3>2026 AI Reconstruction</h3><p>PowerPoint · 16.5 MB</p></div><a href="assets/slides-2945d138.pptx" class="btn" download>下载 PPTX</a></div><div class="card deck-card"><div class="icon">📊</div><div class="info"><h3>AI 2026 Strategic Roadmap</h3><p>PowerPoint · 10.9 MB</p></div><a href="assets/slides-6c33aacd.pptx" class="btn" download>下载 PPTX</a></div>
+      <div class="card deck-card">
+        <div class="pdf-wrap"><iframe src="assets/slides-2945d138.pdf#view=FitH&toolbar=0"></iframe></div>
+        <div class="info">
+          <div class="icon">📊</div>
+          <div class="info-text"><h3>2026 AI Reconstruction</h3><p>PDF · 16.5 MB</p></div>
+          <a href="assets/slides-2945d138.pdf" target="_blank" class="btn">打开</a>
+          <a href="assets/slides-2945d138.pdf" class="btn" download>下载</a>
+        </div>
+      </div><div class="card deck-card">
+        <div class="pdf-wrap"><iframe src="assets/slides-6c33aacd.pdf#view=FitH&toolbar=0"></iframe></div>
+        <div class="info">
+          <div class="icon">📊</div>
+          <div class="info-text"><h3>AI 2026 Strategic Roadmap</h3><p>PDF · 10.9 MB</p></div>
+          <a href="assets/slides-6c33aacd.pdf" target="_blank" class="btn">打开</a>
+          <a href="assets/slides-6c33aacd.pdf" class="btn" download>下载</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -179,18 +201,27 @@ footer a{color:var(--text-dim)}
   <a href="https://github.com/jomicschin-collab/notebooklm-artifacts" target="_blank">GitHub Repo</a>
 </footer>
 
-<div class="modal" id="modal" onclick="closeModal()">
-  <button class="modal-close" onclick="closeModal()">×</button>
-  <iframe id="modalFrame"></iframe>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox(event)">×</button>
+  <img id="lightboxImg" src="" alt="">
 </div>
 
 <script>
-// Render report markdown
 fetch("assets/report.md")
   .then(r => r.text())
-  .then(md => {
-    document.getElementById("report").innerHTML = marked.parse(md);
-  });
+  .then(md => { document.getElementById("report").innerHTML = marked.parse(md); });
+
+function openLightbox(src) {
+  document.getElementById("lightboxImg").src = src;
+  document.getElementById("lightbox").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeLightbox(e) {
+  if (e) e.stopPropagation();
+  document.getElementById("lightbox").classList.remove("open");
+  document.body.style.overflow = "";
+}
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
 </script>
 
 </body>
