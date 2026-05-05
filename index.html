@@ -1,98 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>AI 行业发展动态 (2026年4-5月) — 思维导图</title>
+<meta charset="utf-8">
+<title>AI 行业发展动态思维导图</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  html, body { margin: 0; height: 100%; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
-  body { display: flex; flex-direction: column; }
-  header { padding: 12px 24px; background: #1a1a2e; color: white; flex: 0 0 auto; }
-  header h1 { margin: 0; font-size: 16px; font-weight: 500; }
-  header span { opacity: 0.7; font-size: 12px; margin-left: 12px; }
-  #mindmap-container { flex: 1; overflow: hidden; }
-  svg.markmap { width: 100%; height: 100%; }
+  html, body { margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif; }
+  header { position: fixed; top: 0; left: 0; right: 0;
+    background: linear-gradient(135deg, #1a2b5c 0%, #2c4477 100%);
+    color: #fff; padding: 12px 24px; z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  header .sub { margin-top: 4px; font-size: 12px; opacity: 0.85; }
+  header .sub a { color: #aac8ff; text-decoration: none; }
+  .markmap { position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+    width: 100vw !important; height: calc(100vh - 64px) !important; }
+  .hint { position: fixed; bottom: 12px; right: 16px; font-size: 11px; color: #888;
+    background: rgba(255,255,255,0.85); padding: 4px 10px; border-radius: 4px; z-index: 5; }
 </style>
+<script>
+window.markmap = {
+  autoLoader: {
+    manual: false,
+    toolbar: true
+  }
+};
+</script>
 </head>
 <body>
 <header>
   <h1>🧠 AI 行业发展动态思维导图</h1>
-  <span>2026-04-26 至 2026-05-05 · 由 NotebookLM 基于 10 期 aidigest.club 日报生成</span>
+  <div class="sub">2026-04-26 至 2026-05-05 · 由 NotebookLM 基于 <a href="https://aidigest.club" target="_blank">aidigest.club</a> 10 期日报生成</div>
 </header>
-<div id="mindmap-container">
-<div class="markmap">
-<script type="text/template">
----
-markmap:
-  colorFreezeLevel: 2
-  initialExpandLevel: 3
-  maxWidth: 320
----
-
+<div class="markmap"><script type="text/template">
 # AI 行业发展动态 (2026年4-5月)
-## AI 商业格局与主权化
-### 三大算力联盟定型
-- Google & Amazon 投 Anthropic
-- Microsoft & OpenAI 联盟
-- 超级同盟算力资本游戏
-### 去 NVIDIA 税与自研芯片
-- SpaceX 自研 GPU
-- Google TPU 能效优势
-- Meta MTIA 与微软 Maia
-### 主权基建与国防
-- 五角大楼涉密网络 AI 合同
-- OpenAI Stargate 扩张计划
-- 机密计算与数据主权云
-## 企业级 Agent 工程化
-### 工程实践深水区
-- 单一强 Agent 优于多 Agent 编排
-- 解决 Agent Swarm Tax
-- 上下文与生命周期管理
-### 可观测性与治理
-- LLM 行为漂移监控
-- 统计 SLO 与行为基线
-- 权限沙箱与回滚机制
-### 行业应用落地
-- OpenAI Workspace Agents
-- Salesforce Agentforce 2.0
-- 金融与生命科学研究 Agent
-## AI Coding 与工具链
-### 三足鼎立格局
-- Cursor (AI 原生 IDE)
-- GitHub Copilot (按量计费转型)
-- Claude Code (高 ARR 终端 Agent)
-### 开发范式演进
-- Vibe Coding (自然语言生成)
-- Coding Agent Harness 框架
-- Skills 模式与个人工作流公开化
-### 基础设施配套
-- Railway 亚秒级部署
-- Symphony 编排规范
-- Tank OS 容器化部署
-## 中国 AI 全栈自主
-### 模型性价比突破
-- DeepSeek V4 (1/6 成本)
-- 小米 MiMo (Agent 经济性)
-- Qwen 3.6 Plus 登顶榜单
-### 产业协同与国产化
-- 适配国产 AI 芯片 (华为/中芯)
-- 百度/腾讯组织架构 AI 化
-- 杭州具身智能立法
-## 社会、合规与治理
-### 法律与监管冲突
-- 马斯克诉 OpenAI 案
-- Colorado 反歧视法争议
-- 欧盟 AI 法案工具化探索
-### 内容真实性与伦理
-- AI 假记者站与舆论控制
-- 奥斯卡禁 AI 演员评奖
-- AI 扩大不平等的风险
-### 安全与合规标准
-- Project Glasswing 供应链安全
-- OpenAI System Card 披露
-- Privacy Filter 隐私过滤层
-</script>
-</div>
-</div>
+- AI 商业格局与主权化
+  - 三大算力联盟定型
+    - Google & Amazon 投 Anthropic
+    - Microsoft & OpenAI 联盟
+    - 超级同盟算力资本游戏
+  - 去 NVIDIA 税与自研芯片
+    - SpaceX 自研 GPU
+    - Google TPU 能效优势
+    - Meta MTIA 与微软 Maia
+  - 主权基建与国防
+    - 五角大楼涉密网络 AI 合同
+    - OpenAI Stargate 扩张计划
+    - 机密计算与数据主权云
+- 企业级 Agent 工程化
+  - 工程实践深水区
+    - 单一强 Agent 优于多 Agent 编排
+    - 解决 Agent Swarm Tax
+    - 上下文与生命周期管理
+  - 可观测性与治理
+    - LLM 行为漂移监控
+    - 统计 SLO 与行为基线
+    - 权限沙箱与回滚机制
+  - 行业应用落地
+    - OpenAI Workspace Agents
+    - Salesforce Agentforce 2.0
+    - 金融与生命科学研究 Agent
+- AI Coding 与工具链
+  - 三足鼎立格局
+    - Cursor (AI 原生 IDE)
+    - GitHub Copilot (按量计费转型)
+    - Claude Code (高 ARR 终端 Agent)
+  - 开发范式演进
+    - Vibe Coding (自然语言生成)
+    - Coding Agent Harness 框架
+    - Skills 模式与个人工作流公开化
+  - 基础设施配套
+    - Railway 亚秒级部署
+    - Symphony 编排规范
+    - Tank OS 容器化部署
+- 中国 AI 全栈自主
+  - 模型性价比突破
+    - DeepSeek V4 (1/6 成本)
+    - 小米 MiMo (Agent 经济性)
+    - Qwen 3.6 Plus 登顶榜单
+  - 产业协同与国产化
+    - 适配国产 AI 芯片 (华为/中芯)
+    - 百度/腾讯组织架构 AI 化
+    - 杭州具身智能立法
+- 社会、合规与治理
+  - 法律与监管冲突
+    - 马斯克诉 OpenAI 案
+    - Colorado 反歧视法争议
+    - 欧盟 AI 法案工具化探索
+  - 内容真实性与伦理
+    - AI 假记者站与舆论控制
+    - 奥斯卡禁 AI 演员评奖
+    - AI 扩大不平等的风险
+  - 安全与合规标准
+    - Project Glasswing 供应链安全
+    - OpenAI System Card 披露
+    - Privacy Filter 隐私过滤层
+</script></div>
+<div class="hint">滚轮缩放 · 拖拽平移 · 点击圆点折叠/展开 · 右下角工具栏可重置视图</div>
+
 <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.18"></script>
 </body>
 </html>
