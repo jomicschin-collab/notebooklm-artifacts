@@ -32,7 +32,8 @@
     "type": "infographic",
     "title": "AI 2026 产业趋势质变",
     "filename": "infographic-b77c8f7e.png",
-    "size": 4882787
+    "size": 4882787,
+    "thumb": "thumbs/infographic-b77c8f7e-thumb.jpg"
   },
   {
     "id": "6c33aacd-0dfa-4df2-8660-8aebb8c48477",
@@ -46,14 +47,16 @@
     "type": "infographic",
     "title": "2026 AI 行业趋势预测",
     "filename": "infographic-f98c9852.png",
-    "size": 4441084
+    "size": 4441084,
+    "thumb": "thumbs/infographic-f98c9852-thumb.jpg"
   },
   {
     "id": "4e8fd8d1-af4f-4833-b701-1eb8e7bb7822",
     "type": "infographic",
     "title": "2026人工智能产业趋势分析",
     "filename": "infographic-4e8fd8d1.png",
-    "size": 4897941
+    "size": 4897941,
+    "thumb": "thumbs/infographic-4e8fd8d1-thumb.jpg"
   },
   {
     "id": "01d345e8-2c23-4fbb-9035-58b5ad178b29",
