@@ -1,104 +1,197 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<title>AI 行业发展动态思维导图</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 行业动态 · 2026 春季综合简报</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <style>
-  html, body { margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif; }
-  header { position: fixed; top: 0; left: 0; right: 0;
-    background: linear-gradient(135deg, #1a2b5c 0%, #2c4477 100%);
-    color: #fff; padding: 12px 24px; z-index: 10;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
-  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
-  header .sub { margin-top: 4px; font-size: 12px; opacity: 0.85; }
-  header .sub a { color: #aac8ff; text-decoration: none; }
-  .markmap { position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
-    width: 100vw !important; height: calc(100vh - 64px) !important; }
-  .hint { position: fixed; bottom: 12px; right: 16px; font-size: 11px; color: #888;
-    background: rgba(255,255,255,0.85); padding: 4px 10px; border-radius: 4px; z-index: 5; }
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg-card:#13131a;--bg-elev:#1c1c26;
+  --border:#2a2a35;--border-strong:#3a3a48;
+  --text:#e8e8f0;--text-dim:#8a8a99;--text-faint:#5a5a68;
+  --accent:#7c5cff;--accent2:#22d3ee;--accent3:#f97316;
+  --success:#10b981;
+}
+html,body{background:var(--bg);color:var(--text);font-family:Inter,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent2);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.hero{
+  position:relative;padding:80px 24px 60px;text-align:center;
+  background:radial-gradient(ellipse at top,rgba(124,92,255,0.18),transparent 60%),
+             radial-gradient(ellipse at bottom right,rgba(34,211,238,0.10),transparent 50%);
+  border-bottom:1px solid var(--border);
+}
+.hero-eyebrow{display:inline-block;padding:6px 14px;border:1px solid var(--border-strong);border-radius:999px;font-size:12px;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px}
+.hero h1{font-size:clamp(32px,5vw,56px);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:18px;background:linear-gradient(135deg,#fff 0%,#a8a8c0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p.lede{font-size:18px;color:var(--text-dim);max-width:700px;margin:0 auto;line-height:1.7}
+.hero .meta{margin-top:28px;display:flex;flex-wrap:wrap;gap:24px;justify-content:center;font-size:13px;color:var(--text-faint)}
+.hero .meta span{display:inline-flex;align-items:center;gap:6px}
+
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+section{padding:56px 0}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;gap:16px;flex-wrap:wrap}
+.section-head h2{font-size:24px;font-weight:700;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px}
+.section-head .badge{font-size:11px;color:var(--text-dim);background:var(--bg-elev);padding:4px 10px;border-radius:6px;border:1px solid var(--border);text-transform:uppercase;letter-spacing:0.06em}
+
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--border-strong)}
+.card-body{padding:24px}
+.card h3{font-size:18px;font-weight:600;margin-bottom:8px}
+.card .desc{color:var(--text-dim);font-size:14px;margin-bottom:16px}
+.card .meta{display:flex;gap:14px;font-size:12px;color:var(--text-faint);flex-wrap:wrap}
+.card .meta span{display:inline-flex;align-items:center;gap:5px}
+
+.row{display:grid;gap:20px}
+.row.audio-video{grid-template-columns:1fr 1fr}
+.row.split{grid-template-columns:1fr 1fr}
+.row.three{grid-template-columns:repeat(3,1fr)}
+.row.two{grid-template-columns:1fr 1fr}
+@media (max-width:900px){
+  .row.audio-video,.row.split,.row.three,.row.two{grid-template-columns:1fr}
+}
+
+audio,video{width:100%;display:block;border-radius:8px;background:#000}
+audio{margin-top:8px}
+video{margin-top:8px;max-height:400px}
+
+.mindmap-card{padding:0;height:600px;display:flex;flex-direction:column}
+.mindmap-card .card-body{padding:20px 24px 12px;flex-shrink:0}
+.mindmap-card iframe{flex:1;width:100%;border:0;background:#fff}
+
+.report-card{padding:24px 28px;height:600px;display:flex;flex-direction:column}
+.report-card h3{flex-shrink:0}
+.report-content{flex:1;overflow-y:auto;padding-right:8px;margin-top:14px}
+.report-content::-webkit-scrollbar{width:6px}
+.report-content::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
+.report-content h1,.report-content h2,.report-content h3{margin:18px 0 10px;color:#fff}
+.report-content h1{font-size:20px;border-bottom:1px solid var(--border);padding-bottom:8px}
+.report-content h2{font-size:16px;color:var(--accent2)}
+.report-content h3{font-size:14px}
+.report-content p,.report-content li{font-size:13.5px;color:var(--text-dim);margin:6px 0}
+.report-content ul,.report-content ol{padding-left:22px}
+.report-content strong{color:#fff}
+.report-content code{background:var(--bg-elev);padding:2px 6px;border-radius:4px;font-size:12px;color:var(--accent3)}
+.report-content blockquote{border-left:3px solid var(--accent);padding-left:14px;color:var(--text-dim);margin:10px 0}
+
+.info-thumb{position:relative;display:block;border-radius:12px;overflow:hidden;background:#fff;cursor:pointer;aspect-ratio:4/3;border:1px solid var(--border)}
+.info-thumb iframe{width:100%;height:100%;border:0;pointer-events:none;transform:scale(0.5);transform-origin:0 0;width:200%;height:200%}
+.info-thumb .overlay{position:absolute;inset:0;display:flex;align-items:flex-end;padding:14px;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0) 50%);color:#fff;font-weight:600;font-size:14px;pointer-events:none}
+.info-thumb:hover .overlay{background:linear-gradient(to top,rgba(124,92,255,0.85) 0%,rgba(0,0,0,0) 50%)}
+
+.deck-card{display:flex;align-items:center;gap:20px;padding:22px 24px}
+.deck-card .icon{flex-shrink:0;width:56px;height:56px;background:linear-gradient(135deg,var(--accent3),#fbbf24);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px}
+.deck-card .info{flex:1;min-width:0}
+.deck-card h3{margin-bottom:4px}
+.deck-card .info p{font-size:13px;color:var(--text-dim)}
+.btn{display:inline-block;padding:8px 16px;background:var(--bg-elev);border:1px solid var(--border-strong);border-radius:8px;color:#fff;font-size:13px;font-weight:500;transition:all .2s;white-space:nowrap}
+.btn:hover{background:var(--accent);border-color:var(--accent);text-decoration:none}
+.btn-ghost{background:transparent}
+
+footer{padding:48px 24px;text-align:center;color:var(--text-faint);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
+footer a{color:var(--text-dim)}
+
+/* Modal for infographic full-view */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal iframe{width:100%;height:100%;max-width:1400px;border:0;border-radius:12px;background:#fff}
+.modal-close{position:absolute;top:20px;right:20px;background:var(--bg-elev);border:1px solid var(--border-strong);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:var(--accent)}
 </style>
-<script>
-window.markmap = {
-  autoLoader: {
-    manual: false,
-    toolbar: true
-  }
-};
-</script>
 </head>
 <body>
-<header>
-  <h1>🧠 AI 行业发展动态思维导图</h1>
-  <div class="sub">2026-04-26 至 2026-05-05 · 由 NotebookLM 基于 <a href="https://aidigest.club" target="_blank">aidigest.club</a> 10 期日报生成</div>
-</header>
-<div class="markmap"><script type="text/template">
-# AI 行业发展动态 (2026年4-5月)
-- AI 商业格局与主权化
-  - 三大算力联盟定型
-    - Google & Amazon 投 Anthropic
-    - Microsoft & OpenAI 联盟
-    - 超级同盟算力资本游戏
-  - 去 NVIDIA 税与自研芯片
-    - SpaceX 自研 GPU
-    - Google TPU 能效优势
-    - Meta MTIA 与微软 Maia
-  - 主权基建与国防
-    - 五角大楼涉密网络 AI 合同
-    - OpenAI Stargate 扩张计划
-    - 机密计算与数据主权云
-- 企业级 Agent 工程化
-  - 工程实践深水区
-    - 单一强 Agent 优于多 Agent 编排
-    - 解决 Agent Swarm Tax
-    - 上下文与生命周期管理
-  - 可观测性与治理
-    - LLM 行为漂移监控
-    - 统计 SLO 与行为基线
-    - 权限沙箱与回滚机制
-  - 行业应用落地
-    - OpenAI Workspace Agents
-    - Salesforce Agentforce 2.0
-    - 金融与生命科学研究 Agent
-- AI Coding 与工具链
-  - 三足鼎立格局
-    - Cursor (AI 原生 IDE)
-    - GitHub Copilot (按量计费转型)
-    - Claude Code (高 ARR 终端 Agent)
-  - 开发范式演进
-    - Vibe Coding (自然语言生成)
-    - Coding Agent Harness 框架
-    - Skills 模式与个人工作流公开化
-  - 基础设施配套
-    - Railway 亚秒级部署
-    - Symphony 编排规范
-    - Tank OS 容器化部署
-- 中国 AI 全栈自主
-  - 模型性价比突破
-    - DeepSeek V4 (1/6 成本)
-    - 小米 MiMo (Agent 经济性)
-    - Qwen 3.6 Plus 登顶榜单
-  - 产业协同与国产化
-    - 适配国产 AI 芯片 (华为/中芯)
-    - 百度/腾讯组织架构 AI 化
-    - 杭州具身智能立法
-- 社会、合规与治理
-  - 法律与监管冲突
-    - 马斯克诉 OpenAI 案
-    - Colorado 反歧视法争议
-    - 欧盟 AI 法案工具化探索
-  - 内容真实性与伦理
-    - AI 假记者站与舆论控制
-    - 奥斯卡禁 AI 演员评奖
-    - AI 扩大不平等的风险
-  - 安全与合规标准
-    - Project Glasswing 供应链安全
-    - OpenAI System Card 披露
-    - Privacy Filter 隐私过滤层
-</script></div>
-<div class="hint">滚轮缩放 · 拖拽平移 · 点击圆点折叠/展开 · 右下角工具栏可重置视图</div>
 
-<script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.18"></script>
+<header class="hero">
+  <div class="hero-eyebrow">NotebookLM Studio · 2026 Spring Edition</div>
+  <h1>AI 行业动态<br>2026 春季综合简报</h1>
+  <p class="lede">基于 aidigest.club 10 期日报（2026-04-26 → 2026-05-05）由 Google NotebookLM 多模态生成的播客、视频、思维导图、深度报告、信息图与战略幻灯片。</p>
+  <div class="meta">
+    <span>📅 2026-04-26 → 2026-05-05</span>
+    <span>📚 10 期日报</span>
+    <span>🎨 9 种 AI 生成产物</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <section>
+    <div class="section-head"><h2>🎧 播客 + 🎬 视频</h2><span class="badge">Audio · Video</span></div>
+    <div class="row audio-video">
+      <div class="card">
+        <div class="card-body">
+          <h3>AI实习生九秒删库真相</h3>
+          <p class="desc">NotebookLM 长格式播客 · 双主持人对谈</p>
+          <audio controls preload="metadata" src="assets/audio.mp3"></audio>
+          <div class="meta" style="margin-top:12px"><span>🎧 MP3</span><span>26.5 MB</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3>深度解析：2026春季主权AI时代</h3>
+          <p class="desc">NotebookLM 自动生成的电影感解说视频</p>
+          <video controls preload="metadata" src="assets/video.mp4"></video>
+          <div class="meta" style="margin-top:12px"><span>🎬 MP4</span><span>40.2 MB</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>🧠 思维导图 + 📄 深度简报</h2><span class="badge">Mindmap · Report</span></div>
+    <div class="row split">
+      <div class="card mindmap-card">
+        <div class="card-body">
+          <h3>AI 行业发展动态 (2026年4-5月)</h3>
+          <p class="desc" style="margin-bottom:0">5 大主题 24 个分支 · 可缩放/折叠</p>
+        </div>
+        <iframe src="mindmap.html"></iframe>
+      </div>
+      <div class="card report-card">
+        <h3>AI 行业简报：主权算力、工程化深水区与全栈自主突围 (2026-04-26 至 2026-05-05)</h3>
+        <p class="desc">7.3 KB Markdown · 三大主线 + 时间线 + 数字汇总</p>
+        <div class="report-content" id="report"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>🖼️ 信息图</h2><span class="badge">3 Infographics</span></div>
+    <div class="row three">
+      <div class="card"><div class="card-body" style="padding:18px"><a href="assets/infographic-b77c8f7e.html" target="_blank" class="info-thumb"><iframe src="assets/infographic-b77c8f7e.html" sandbox></iframe><div class="overlay">AI 2026 产业趋势质变</div></a><div class="meta" style="margin-top:14px"><span>🖼️ HTML</span><span>4.7 MB</span><a href="assets/infographic-b77c8f7e.html" target="_blank" style="margin-left:auto">打开 →</a></div></div></div><div class="card"><div class="card-body" style="padding:18px"><a href="assets/infographic-f98c9852.html" target="_blank" class="info-thumb"><iframe src="assets/infographic-f98c9852.html" sandbox></iframe><div class="overlay">2026 AI 行业趋势预测</div></a><div class="meta" style="margin-top:14px"><span>🖼️ HTML</span><span>4.2 MB</span><a href="assets/infographic-f98c9852.html" target="_blank" style="margin-left:auto">打开 →</a></div></div></div><div class="card"><div class="card-body" style="padding:18px"><a href="assets/infographic-4e8fd8d1.html" target="_blank" class="info-thumb"><iframe src="assets/infographic-4e8fd8d1.html" sandbox></iframe><div class="overlay">2026人工智能产业趋势分析</div></a><div class="meta" style="margin-top:14px"><span>🖼️ HTML</span><span>4.7 MB</span><a href="assets/infographic-4e8fd8d1.html" target="_blank" style="margin-left:auto">打开 →</a></div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>📊 战略幻灯片</h2><span class="badge">2 Slide Decks</span></div>
+    <div class="row two">
+      <div class="card deck-card"><div class="icon">📊</div><div class="info"><h3>2026 AI Reconstruction</h3><p>PowerPoint · 16.5 MB</p></div><a href="assets/slides-2945d138.pptx" class="btn" download>下载 PPTX</a></div><div class="card deck-card"><div class="icon">📊</div><div class="info"><h3>AI 2026 Strategic Roadmap</h3><p>PowerPoint · 10.9 MB</p></div><a href="assets/slides-6c33aacd.pptx" class="btn" download>下载 PPTX</a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  生成于 2026-05-05 · 来源 <a href="https://aidigest.club" target="_blank">aidigest.club</a> ·
+  <a href="https://github.com/jomicschin-collab/notebooklm-artifacts" target="_blank">GitHub Repo</a>
+</footer>
+
+<div class="modal" id="modal" onclick="closeModal()">
+  <button class="modal-close" onclick="closeModal()">×</button>
+  <iframe id="modalFrame"></iframe>
+</div>
+
+<script>
+// Render report markdown
+fetch("assets/report.md")
+  .then(r => r.text())
+  .then(md => {
+    document.getElementById("report").innerHTML = marked.parse(md);
+  });
+</script>
+
 </body>
 </html>

@@ -1,0 +1,226 @@
+{
+  "name": "AI 行业发展动态 (2026年4-5月)",
+  "children": [
+    {
+      "name": "AI 商业格局与主权化",
+      "children": [
+        {
+          "name": "三大算力联盟定型",
+          "children": [
+            {
+              "name": "Google & Amazon 投 Anthropic"
+            },
+            {
+              "name": "Microsoft & OpenAI 联盟"
+            },
+            {
+              "name": "超级同盟算力资本游戏"
+            }
+          ]
+        },
+        {
+          "name": "去 NVIDIA 税与自研芯片",
+          "children": [
+            {
+              "name": "SpaceX 自研 GPU"
+            },
+            {
+              "name": "Google TPU 能效优势"
+            },
+            {
+              "name": "Meta MTIA 与微软 Maia"
+            }
+          ]
+        },
+        {
+          "name": "主权基建与国防",
+          "children": [
+            {
+              "name": "五角大楼涉密网络 AI 合同"
+            },
+            {
+              "name": "OpenAI Stargate 扩张计划"
+            },
+            {
+              "name": "机密计算与数据主权云"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "企业级 Agent 工程化",
+      "children": [
+        {
+          "name": "工程实践深水区",
+          "children": [
+            {
+              "name": "单一强 Agent 优于多 Agent 编排"
+            },
+            {
+              "name": "解决 Agent Swarm Tax"
+            },
+            {
+              "name": "上下文与生命周期管理"
+            }
+          ]
+        },
+        {
+          "name": "可观测性与治理",
+          "children": [
+            {
+              "name": "LLM 行为漂移监控"
+            },
+            {
+              "name": "统计 SLO 与行为基线"
+            },
+            {
+              "name": "权限沙箱与回滚机制"
+            }
+          ]
+        },
+        {
+          "name": "行业应用落地",
+          "children": [
+            {
+              "name": "OpenAI Workspace Agents"
+            },
+            {
+              "name": "Salesforce Agentforce 2.0"
+            },
+            {
+              "name": "金融与生命科学研究 Agent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AI Coding 与工具链",
+      "children": [
+        {
+          "name": "三足鼎立格局",
+          "children": [
+            {
+              "name": "Cursor (AI 原生 IDE)"
+            },
+            {
+              "name": "GitHub Copilot (按量计费转型)"
+            },
+            {
+              "name": "Claude Code (高 ARR 终端 Agent)"
+            }
+          ]
+        },
+        {
+          "name": "开发范式演进",
+          "children": [
+            {
+              "name": "Vibe Coding (自然语言生成)"
+            },
+            {
+              "name": "Coding Agent Harness 框架"
+            },
+            {
+              "name": "Skills 模式与个人工作流公开化"
+            }
+          ]
+        },
+        {
+          "name": "基础设施配套",
+          "children": [
+            {
+              "name": "Railway 亚秒级部署"
+            },
+            {
+              "name": "Symphony 编排规范"
+            },
+            {
+              "name": "Tank OS 容器化部署"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "中国 AI 全栈自主",
+      "children": [
+        {
+          "name": "模型性价比突破",
+          "children": [
+            {
+              "name": "DeepSeek V4 (1/6 成本)"
+            },
+            {
+              "name": "小米 MiMo (Agent 经济性)"
+            },
+            {
+              "name": "Qwen 3.6 Plus 登顶榜单"
+            }
+          ]
+        },
+        {
+          "name": "产业协同与国产化",
+          "children": [
+            {
+              "name": "适配国产 AI 芯片 (华为/中芯)"
+            },
+            {
+              "name": "百度/腾讯组织架构 AI 化"
+            },
+            {
+              "name": "杭州具身智能立法"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "社会、合规与治理",
+      "children": [
+        {
+          "name": "法律与监管冲突",
+          "children": [
+            {
+              "name": "马斯克诉 OpenAI 案"
+            },
+            {
+              "name": "Colorado 反歧视法争议"
+            },
+            {
+              "name": "欧盟 AI 法案工具化探索"
+            }
+          ]
+        },
+        {
+          "name": "内容真实性与伦理",
+          "children": [
+            {
+              "name": "AI 假记者站与舆论控制"
+            },
+            {
+              "name": "奥斯卡禁 AI 演员评奖"
+            },
+            {
+              "name": "AI 扩大不平等的风险"
+            }
+          ]
+        },
+        {
+          "name": "安全与合规标准",
+          "children": [
+            {
+              "name": "Project Glasswing 供应链安全"
+            },
+            {
+              "name": "OpenAI System Card 披露"
+            },
+            {
+              "name": "Privacy Filter 隐私过滤层"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
